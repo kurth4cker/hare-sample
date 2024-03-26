@@ -1,14 +1,14 @@
-@test fn distance0() void = {
-	let p = point { x = 0, y = 0 };
-	assert(distance0(&p) == 0.0);
+@test fn distance() void = {
+	const origin = point { x = 0, y = 0 };
+	let p1 = point { x = -3, y = -4 };
+	let p2 = point { x = 3, y = 4 };
 
-	p.x = 3;
-	p.y = 4;
-	assert(distance0(&p) == 5.0);
+	assert(distance(&p1, &p2) == 10.0);
+	assert(distance(&p1, &origin) == 5.0);
+	assert(distance(&p2, &origin) == 5.0);
 
-	p.x = 5;
-	p.y = 12;
-	assert(distance0(&p) == 13.0);
+	p1 = point { x = 5, y = 12 };
+	assert(distance(&p1, &origin) == 13.0);
 };
 
 @test fn origin() void = {

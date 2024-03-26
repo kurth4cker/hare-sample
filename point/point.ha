@@ -13,10 +13,10 @@ export const origin = point {
 	y = 0,
 };
 
-// calculate distance of point from origin: sqrt(x^2 + y^2)
-export fn distance0(pnt: *point) f64 = {
-	const x = pnt.x: f64;
-	const y = pnt.y: f64;
+// Calculate distance of two points
+export fn distance(p1: *point, p2: *point) f64 = {
+	const x = (p1.x - p2.x): f64;
+	const y = (p1.y - p2.y): f64;
 
 	return math::sqrtf64(x * x + y * y);
 };
