@@ -1,20 +1,14 @@
 .POSIX:
 .SUFFIXES:
 HARE = hare
-HAREFLAGS =
+# HAREFLAGS =
 
-BIN = sample
-SAMPLE_SRC = cmd/sample/main.ha
+BIN = sha256sum
 
 all: $(BIN)
 
-sample: $(SAMPLE_SRC)
-
 $(BIN):
-	$(HARE) build $(HAREFLAGS) cmd/$@
-
-check:
-	$(HARE) test $(HAREFLAGS)
+	$(HARE) build $(HAREFLAGS) -o $@ cmd/$@/
 
 clean:
 	rm -f $(BIN)
