@@ -18,10 +18,9 @@ export fn main() void = {
 	case let file: io::file =>
 		yield file;
 	case let err: fs::error =>
-		fmt::fatalf("error opening {}: {}",
-			path, fs::strerror(err));
+		fmt::fatalf("error opening {}: {}", path, fs::strerror(err));
 	};
-	defer io::close(file)!;
+	defer io::close(file): void;
 
 	const hash = sha256::sha256();
 	io::copy(&hash, file)!;
@@ -29,5 +28,5 @@ export fn main() void = {
 	let sum: [sha256::SZ]u8 = [0...];
 	hash::sum(&hash, sum);
 
-	fmt::println(hex::encodestr(sum))!;
+	fmt::println(hex::encodestr(sum)): void;
 };

@@ -6,9 +6,7 @@ use io;
 use os;
 
 export fn main() void = {
-	match (print_os()) {
-	case => yield;
-	};
+	print_os(): void;
 };
 
 fn print_os() (io::error | void) = {
