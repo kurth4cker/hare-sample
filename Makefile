@@ -16,3 +16,6 @@ $(BIN):
 
 clean:
 	rm -f $(BIN)
+
+check:
+	$(HARE) test $(HAREFLAGS)
